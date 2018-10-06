@@ -40,8 +40,8 @@ function playJump() {
 // ==================
 //     GOKU GAMEPAD
 // ==================
-$(document).keydown(function (event) {
-  if (!$("#collapseExample").hasClass('show')) {
+$(document).keydown(function(event) {
+  if (!$("#collapseExample").hasClass("show")) {
     //comment out this collisionBox object after testing
     collisionQuery.checkContact();
 
@@ -55,7 +55,7 @@ $(document).keydown(function (event) {
         $(".goku").removeClass("idle-p1");
         $(".goku").addClass("goku-punch");
         $(".goku").addClass("punch-p1");
-        setTimeout(function (e) {
+        setTimeout(function(e) {
           $(".goku").removeClass("punch-p1");
           $(".goku").removeClass("goku-punch");
           $(".goku").addClass("goku-idle");
@@ -70,7 +70,7 @@ $(document).keydown(function (event) {
         playCross();
         $(".goku").addClass("kick-p1");
         $(".goku").addClass("goku-kick");
-        setTimeout(function (e) {
+        setTimeout(function(e) {
           $(".goku").removeClass("kick-p1");
           $(".goku").removeClass("goku-kick");
         }, 530);
@@ -85,7 +85,7 @@ $(document).keydown(function (event) {
         $(".goku").removeClass("idle-p1");
         $(".goku").addClass("goku-jump");
         $(".goku").addClass("jump-p1");
-        setTimeout(function (e) {
+        setTimeout(function(e) {
           $(".goku").addClass("goku-idle");
           $(".goku").addClass("idle-p1");
           $(".goku").removeClass("jump-p1");
@@ -99,8 +99,8 @@ $(document).keydown(function (event) {
 // ==================
 //     RYU GAMEPAD
 // ==================
-$(document).keydown(function (event) {
-  if (!$("#collapseExample").hasClass('show')) {
+$(document).keydown(function(event) {
+  if (!$("#collapseExample").hasClass("show")) {
     //comment out this collisionTester object after testing
     collisionQuery.checkContact();
 
@@ -114,7 +114,7 @@ $(document).keydown(function (event) {
         $(".ryu").removeClass("idle-p2");
         $(".ryu").addClass("ryu-punch");
         $(".ryu").addClass("punch-p2");
-        setTimeout(function (event) {
+        setTimeout(function(event) {
           $(".ryu").addClass("ryu-idle");
           $(".ryu").addClass("idle-p2");
           $(".ryu").removeClass("punch-p2");
@@ -129,7 +129,7 @@ $(document).keydown(function (event) {
         playCross();
         $(".ryu").addClass("ryu-kick");
         $(".ryu").addClass("kick-p2");
-        setTimeout(function (event) {
+        setTimeout(function(event) {
           $(".ryu").removeClass("kick-p2");
           $(".ryu").removeClass("ryu-kick");
         }, 600);
@@ -142,7 +142,7 @@ $(document).keydown(function (event) {
         playJump();
         $(".ryu").addClass("ryu-jump");
         $(".ryu").addClass("jump-p2");
-        setTimeout(function (event) {
+        setTimeout(function(event) {
           $(".ryu").removeClass("jump-p2");
           $(".ryu").removeClass("ryu-jump");
         }, 370);
@@ -156,87 +156,83 @@ $(document).keydown(function (event) {
 // =============
 
 var walk = {
-	goku: $(".goku"),
-	ryu: $(".ryu"),
-	speed: 2,
-	gokuLeftKeyToggle  : false,
-	gokuRightKeyToggle : false,
-	ryuLeftKeyToggle   : false,
-	ryuRightKeyToggle  : false,
+  goku: $(".goku"),
+  ryu: $(".ryu"),
+  speed: 2,
+  gokuLeftKeyToggle: false,
+  gokuRightKeyToggle: false,
+  ryuLeftKeyToggle: false,
+  ryuRightKeyToggle: false,
 
-	keyDown: $(document).keydown(function (event) {
-		var keycode = event.keyCode;
-		if (keycode === 81) {
-			walk.gokuLeftKeyToggle = true;
-			//database call to record the press of the keytype and the keycode
-			recordGokusKeyPad("keydown", keycode);
-		}
-		if (keycode === 69) {
-			walk.gokuRightKeyToggle = true;
-			recordGokusKeyPad("keydown", keycode);
-		}
-		if (keycode === 85) {
-			walk.ryuLeftKeyToggle = true;
-			recordRyusKeyPad("keydown", keycode);
-		}
-		if (keycode === 79) {
-			walk.ryuRightKeyToggle  = true;
-			recordRyusKeyPad("keydown", keycode);
-		}
-	}),
-	keyUp: $(document).keyup(function (event) {
-		var keycode = event.keyCode;
-		if (keycode === 81) {
-			walk.gokuLeftKeyToggle  = false;
-			recordGokusKeyPad("keyup", keycode);
-		}
-		if (keycode === 69) {
-			walk.gokuRightKeyToggle = false;
-			recordGokusKeyPad("keyup", keycode);
-		}
-		if (keycode === 85) {
-			walk.ryuLeftKeyToggle   = false;
-			recordRyusKeyPad("keyup", keycode);
-		}
-		if (keycode === 79) {
-			walk.ryuRightKeyToggle  = false;
-			recordRyusKeyPad("keyup", keycode);
-		}
-	}),
-	animateGo: $(document).keydown(function () {
-		if (walk.gokuLeftKeyToggle == true || walk.gokuRightKeyToggle == true) {
-			walk.goku.addClass("goku-walk walk-p1");
-		}
-		if (walk.ryuLeftKeyToggle == true || walk.ryuRightKeyToggle == true) {
-			walk.ryu.addClass("ryu-walk walk-p2");
-		}
-	}),
-	animateStop: $(document).keyup(function () {
-		if (walk.gokuLeftKeyToggle == false || walk.gokuRightKeyToggle == false) {
-			walk.goku.removeClass("goku-walk walk-p1");
-		}
-		if (walk.ryuLeftKeyToggle == false || walk.ryuRightKeyToggle == false) {
-			walk.ryu.removeClass("ryu-walk walk-p2");
-		}
-	}),
-	moveGoku: function () {
-		var charposition = walk.goku.position().left;
-		if (walk.gokuLeftKeyToggle)
-			walk.goku.css(
-				"left", charposition - walk.speed + "px");
-		if (walk.gokuRightKeyToggle)
-			walk.goku.css(
-				"left", charposition + walk.speed + "px");
-	},
-	moveRyu: function () {
-		var charposition = walk.ryu.position().left;
-		if (walk.ryuLeftKeyToggle)
-			walk.ryu.css(
-				"left", charposition - walk.speed + "px");
-		if (walk.ryuRightKeyToggle)
-			walk.ryu.css(
-				"left", charposition + walk.speed + "px");
-	},
+  keyDown: $(document).keydown(function(event) {
+    var keycode = event.keyCode;
+    if (keycode === 81) {
+      walk.gokuLeftKeyToggle = true;
+      //database call to record the press of the keytype and the keycode
+      recordGokusKeyPad("keydown", keycode);
+    }
+    if (keycode === 69) {
+      walk.gokuRightKeyToggle = true;
+      recordGokusKeyPad("keydown", keycode);
+    }
+    if (keycode === 85) {
+      walk.ryuLeftKeyToggle = true;
+      recordRyusKeyPad("keydown", keycode);
+    }
+    if (keycode === 79) {
+      walk.ryuRightKeyToggle = true;
+      recordRyusKeyPad("keydown", keycode);
+    }
+  }),
+  keyUp: $(document).keyup(function(event) {
+    var keycode = event.keyCode;
+    if (keycode === 81) {
+      walk.gokuLeftKeyToggle = false;
+      recordGokusKeyPad("keyup", keycode);
+    }
+    if (keycode === 69) {
+      walk.gokuRightKeyToggle = false;
+      recordGokusKeyPad("keyup", keycode);
+    }
+    if (keycode === 85) {
+      walk.ryuLeftKeyToggle = false;
+      recordRyusKeyPad("keyup", keycode);
+    }
+    if (keycode === 79) {
+      walk.ryuRightKeyToggle = false;
+      recordRyusKeyPad("keyup", keycode);
+    }
+  }),
+  animateGo: $(document).keydown(function() {
+    if (walk.gokuLeftKeyToggle == true || walk.gokuRightKeyToggle == true) {
+      walk.goku.addClass("goku-walk walk-p1");
+    }
+    if (walk.ryuLeftKeyToggle == true || walk.ryuRightKeyToggle == true) {
+      walk.ryu.addClass("ryu-walk walk-p2");
+    }
+  }),
+  animateStop: $(document).keyup(function() {
+    if (walk.gokuLeftKeyToggle == false || walk.gokuRightKeyToggle == false) {
+      walk.goku.removeClass("goku-walk walk-p1");
+    }
+    if (walk.ryuLeftKeyToggle == false || walk.ryuRightKeyToggle == false) {
+      walk.ryu.removeClass("ryu-walk walk-p2");
+    }
+  }),
+  moveGoku: function() {
+    var charposition = walk.goku.position().left;
+    if (walk.gokuLeftKeyToggle)
+      walk.goku.css("left", charposition - walk.speed + "px");
+    if (walk.gokuRightKeyToggle)
+      walk.goku.css("left", charposition + walk.speed + "px");
+  },
+  moveRyu: function() {
+    var charposition = walk.ryu.position().left;
+    if (walk.ryuLeftKeyToggle)
+      walk.ryu.css("left", charposition - walk.speed + "px");
+    if (walk.ryuRightKeyToggle)
+      walk.ryu.css("left", charposition + walk.speed + "px");
+  }
 };
 setInterval(walk.moveGoku, 1);
 setInterval(walk.moveRyu, 1);
