@@ -1,9 +1,7 @@
 # Smash-SNES
 
 
-### Part 1- our MVP:
-
-
+## Part 1- our MVP:
 
 #### Idea: To build an online street fight game with our favorite comic characters while chatting live with other players.
 
@@ -16,7 +14,7 @@
 ### User Stories:
 
   1. As a user, I want to be able to log in easily via Google.
-  2. As a user, I want to be able to play as our favourite comic icons while chatting.
+  2. As a user, I want to be able to play as our favorite comic icons while chatting.
   3. As a user, I want to be able to connect with players via our chatboard. 
 
 - Nice-To-Haves
@@ -24,12 +22,14 @@
   * opening game page
   * medals for winners
   
- ### Part 1- Street-Fight Game as a glance:
- ### Highlights of our game feature
-  * Live chat
-  * animated backgrounds
-  * 
+ ## Part 1- Street-Fight Game as a glance:
+
+ ### Highlights of our game features
+  * ![Log in with Google System](images/game.png"Control players by via Google Account")
   
+  * ![Chat](images/chat.png"Live chat with your opponent")
+  
+ 
   #### Instructions:
   * Log in
   * Press keys to move characters
