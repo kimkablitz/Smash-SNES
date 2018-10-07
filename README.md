@@ -30,7 +30,7 @@
  ## Part 1- Street-Fight Game as a glance:
 
  ### Highlights of our game feature
- ![Authentication](images/login.png "Sign-in via Google Account")
+ ![Authentication](images/game.png "Sign-in via Google Account")
 
  ![Live Chat](images/chat.png "Chat with your opponent")
 
