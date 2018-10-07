@@ -1,4 +1,3 @@
-
 /* 
 =============
   GAME PAD
@@ -16,8 +15,8 @@
 .newGame {
   padding: 10px;
   font-size: 20px;
-  right:    -20;
-  bottom:   -200;
+  right: -20;
+  bottom: -200;
 }
 
 /* 
@@ -35,7 +34,7 @@ HEALTH BAR
 }
 
 .health-bar,
-.health-bar-p2{
+.health-bar-p2 {
   background-color: yellow;
   height: 100%;
   position: relative;

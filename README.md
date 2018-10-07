@@ -2,8 +2,11 @@
 
 
 ## Part 1- our MVP:
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
 #### Idea: To build an online street fight game with our favorite comic characters while chatting live with other players.
 
@@ -16,7 +19,7 @@
 ### User Stories:
 
   1. As a user, I want to be able to log in easily via Google.
-  2. As a user, I want to be able to play as our favourite comic icons while chatting.
+  2. As a user, I want to be able to play as our favorite comic icons while chatting.
   3. As a user, I want to be able to connect with players via our chatboard. 
 
 - Nice-To-Haves
@@ -32,6 +35,9 @@
  ![Live Chat](images/chat.png "Chat with your opponent")
 
   
+  * ![Chat](images/chat.png"Live chat with your opponent")
+  
+ 
   #### Instructions:
   * Log in
   * Press keys to move characters

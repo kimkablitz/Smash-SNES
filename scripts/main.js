@@ -211,7 +211,7 @@ function authStateObserver(user) {
     // Get the signed-in user's profile pic and name.
     var profilePicUrl = getProfilePicUrl();
     let userName = getUserName();
-    
+
     //handles
     characterHandlers();
 
@@ -334,7 +334,7 @@ var config = {
 firebase.initializeApp(config);
 
 //create a variable to reference the database
- var database = firebase.database();
+var database = firebase.database();
 
 // Shortcuts to DOM Elements.
 var messageListElement = document.getElementById("messages");
