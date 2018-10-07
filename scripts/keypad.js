@@ -136,9 +136,9 @@ $(document).keydown(function (event) {
         break;
 
       // user presses the "l" JUMP key
-      case 38:
+      case 76:
         //database call to record the press of the keytype and the keycode
-        recordRyusKeyPad("keydown", 38);
+        recordRyusKeyPad("keydown", 76);
         playJump();
         $(".ryu").addClass("ryu-jump");
         $(".ryu").addClass("jump-p2");
@@ -175,11 +175,11 @@ var walk = {
 			walk.gokuRightKeyToggle = true;
 			recordGokusKeyPad("keydown", keycode);
 		}
-		if (keycode === 37) {
+		if (keycode === 85) {
 			walk.ryuLeftKeyToggle = true;
 			recordRyusKeyPad("keydown", keycode);
 		}
-		if (keycode === 39) {
+		if (keycode === 79) {
 			walk.ryuRightKeyToggle  = true;
 			recordRyusKeyPad("keydown", keycode);
 		}
@@ -194,11 +194,11 @@ var walk = {
 			walk.gokuRightKeyToggle = false;
 			recordGokusKeyPad("keyup", keycode);
 		}
-		if (keycode === 37) {
+		if (keycode === 85) {
 			walk.ryuLeftKeyToggle   = false;
 			recordRyusKeyPad("keyup", keycode);
 		}
-		if (keycode === 39) {
+		if (keycode === 79) {
 			walk.ryuRightKeyToggle  = false;
 			recordRyusKeyPad("keyup", keycode);
 		}
