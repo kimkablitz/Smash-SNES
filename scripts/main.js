@@ -15,14 +15,14 @@
  */
 "use strict";
 
-// Signs-in Friendly Chat.
+// Signs-in 
 function signIn() {
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider);
 }
 
-// Signs-out of Friendly Chat.
+// Signs-out 
 function signOut() {
   // Sign out of Firebase.
   firebase.auth().signOut();
@@ -36,7 +36,7 @@ function initFirebaseAuth() {
 
 // Returns the signed-in user's profile Pic URL.
 function getProfilePicUrl() {
-  return firebase.auth().currentUser.photoURL || "images/profile.png";
+  return firebase.auth().currentUser.photoURL;
 }
 
 // Returns the signed-in user's display name.
@@ -248,7 +248,7 @@ function checkSignedInWithMessage() {
     return true;
   }
 
-  // Display a message to the user using a Toast.
+  Display a message to the user using a Toast.
   var data = {
     message: "You must sign-in first",
     timeout: 2000
@@ -322,15 +322,6 @@ function toggleButton() {
     submitButtonElement.setAttribute("disabled", "true");
   }
 }
-
-// // Checks that the Firebase SDK has been correctly setup and configured.
-// function checkSetup() {
-//   if (!window.firebase || !(firebase.app instanceof Function) || !firebase.app().options) {
-//     window.alert('You have not configured and imported the Firebase SDK. ' +
-//         'Make sure you go through the codelab setup instructions and make ' +
-//         'sure you are running the codelab using `firebase serve`');
-//   }
-// }
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyB3XsVc-KBQ-2qELEg82RmcIShbGCFHhZE",
@@ -342,8 +333,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// // Checks that Firebase has been imported.
-// checkSetup();
 //create a variable to reference the database
  var database = firebase.database();
 

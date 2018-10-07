@@ -176,6 +176,7 @@ var walk = {
 			recordGokusKeyPad("keydown", keycode);
 		}
 		if (keycode === 85) {
+      playHadouken();
 			walk.ryuLeftKeyToggle = true;
 			recordRyusKeyPad("keydown", keycode);
 		}
