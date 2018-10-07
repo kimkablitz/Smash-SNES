@@ -2,6 +2,11 @@
 
 
 ## Part 1- our MVP:
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
 #### Idea: To build an online street fight game with our favorite comic characters while chatting live with other players.
 
@@ -24,8 +29,16 @@
   
  ## Part 1- Street-Fight Game as a glance:
 
+<<<<<<< HEAD
  ### Highlights of our game features
   * ![Log in with Google System](images/game.png"Control players by via Google Account")
+=======
+ ### Highlights of our game feature
+ ![Authentication](images/login.png "Sign-in via Google Account")
+
+ ![Live Chat](images/chat.png "Chat with your opponent")
+
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
   
   * ![Chat](images/chat.png"Live chat with your opponent")
   

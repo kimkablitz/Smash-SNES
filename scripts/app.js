@@ -3,26 +3,17 @@
 //initialize player 1
 var goku = null;
 
-//initialize data for player1
-var gokuData = null;
-
-//reference to player 1
-var initGoku = null;
-
 //initialize player 2
 var ryu = null;
 
-//initialize data for player2
-var ryuData = null;
-
-//reference to player 2
-var initRyu = null;
+//tracks current fighter
+var myFighter = null;
 
 //wins count
-var winCount;
+var winCount = 0;
 
 //loss count
-var lossCount;
+var lossCount = 0;
 
 //  Variable that will hold the setInterval that runs the countdown
 var intervalId;
@@ -42,10 +33,13 @@ var clockRunning = false;
 
 //declare a winner of the game if the either player win 3 rounds in a row
 
+<<<<<<< HEAD
 //loads jQuery after the document is already loaded
 $(document).ready(function() {
   //$("#instructions").addClass("d-none");
 });
+=======
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
 // Functions
 // ======================
@@ -53,6 +47,7 @@ $(document).ready(function() {
 
 //make handlers for click handlers for goku and ryu
 function characterHandlers() {
+<<<<<<< HEAD
   $("#gokuImg").addClass("should-hover");
   $("#ryuImg").addClass("should-hover");
 
@@ -161,6 +156,108 @@ function characterHandlers() {
         recordRyusKeyPad = recordRyusKeyPadReal;
       });
   });
+=======
+    //add hover to goku
+    $("#gokuImg").addClass("should-hover");
+    //add hover to ryu
+    $("#ryuImg").addClass("should-hover");
+
+    //handles data deletion of player wins when player leaves
+    database.ref("/wins/").onDisconnect().remove();
+
+    //showcase goku info when the user clicks the character
+    $("#gokuChar").on("click", function (event) {
+        // Prevent the page from refreshing
+        event.preventDefault();
+
+        //check there is not already a player online
+        database.ref("/players/goku").once("value").then(
+            function (snapshot) {
+                //check that no other player has chosen goku
+                if (snapshot.val() !== null) {
+                    return;
+                }
+                //handles player1 name selection
+                goku = userNameElement.textContent;
+
+                //update html
+                $("#player1").text(goku);
+
+                //hide instructions
+                revealFigthingArena();
+
+                //handles data deletion of player name when player leaves
+                database.ref("/players/goku").onDisconnect().remove();
+
+                //handles data deletion of keypad when player leaves
+                database.ref("/keypad").onDisconnect().remove();
+
+                //change what is saved in firebase
+                database.ref("/players").update({
+                    goku: goku
+                });
+
+                // Firebase is always watching for changes to the data on the character goku keypad.
+                // When changes occurs it will print them to console and html
+                database.ref("/keypad/ryu/").on("child_added", keyPadInputs, function (errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+                });
+
+                //make the fake function call the real function
+                recordGokusKeyPad = recordGokusKeyPadReal;
+
+                //current fighter
+                myFighter = "goku";
+            }
+        );
+    });
+
+    //showcase ryu info when the user clicks the character
+    $("#ryuChar").on("click", function (event) {
+        // Prevent the page from refreshing
+        event.preventDefault();
+        //check there is not already a player online
+        database.ref("/players/ryu").once("value").then(
+            function (snapshot) {
+                //check that no other player has chosen goku
+                if (snapshot.val() !== null) {
+                    return;
+                }
+                //handles player1 name selection
+                ryu = userNameElement.textContent;
+
+                //update html
+                $("#player2").text(ryu);
+
+                //hide instructions
+                revealFigthingArena();
+
+                //handles data deletion of player name when player leaves
+                database.ref("/players/ryu").onDisconnect().remove();
+
+                //handles data deletion of keypad when player leaves
+                database.ref("/keypad").onDisconnect().remove();
+
+                //change what is saved in firebase
+                database.ref("/players").update({
+                    ryu: ryu
+                });
+
+                // Firebase is always watching for changes to the data on the character goku keypad.
+                // When changes occurs it will print them to console and html
+                database.ref("/keypad/goku/").on("child_added", keyPadInputs, function (errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+                });
+
+                //make the fake function call the real function
+                recordRyusKeyPad = recordRyusKeyPadReal;
+
+                //current fighter
+                myFighter = "ryu";
+            }
+        );
+    });
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 }
 // Firebase is always watching for changes to the data on the character goku.
 // When changes occurs it will print them to console and html
@@ -181,6 +278,7 @@ database.ref("/players/goku").on(
       //update html
       $("#player1").text(goku);
     } else {
+<<<<<<< HEAD
       //reset game when goku is not present
       if (goku !== null && ryu !== null) {
         //call reset
@@ -192,6 +290,17 @@ database.ref("/players/goku").on(
 
       //update html
       $("#player1").text("Player1");
+=======
+        
+        //update html
+        $("#player1").text("Player1");
+
+        //reset game when goku is not present
+        if (goku !== null) {
+            //reset fight arena based on timer running out, declare a winner and don't reset arena
+            resetFightArena("Goku Forfeits!", "ryu", true);
+        }
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
     }
     // If any errors are experienced, log them to console.
   },
@@ -219,6 +328,7 @@ database.ref("/players/ryu").on(
       //update html
       $("#player2").text(ryu);
     } else {
+<<<<<<< HEAD
       //reset game when ryu is not present
       if (ryu !== null && goku !== null) {
         //call reset
@@ -227,6 +337,21 @@ database.ref("/players/ryu").on(
 
       //handles player2 name updates
       ryu = null;
+=======
+        
+        //update html
+        $("#player2").text("Player2");
+
+        //reset game when ryu is not present
+        if (ryu !== null) {
+            //reset fight arena based on timer running out, declare a winner and don't reset arena
+            resetFightArena("Ryu Forfeits!", "goku", true);
+        } 
+
+       
+
+        
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
       //update html
       $("#player2").text("Player2");
@@ -248,6 +373,18 @@ function maybeStartTimer() {
     countdown.start();
   }
 }
+//sets who won
+database.ref("/wins/").on("value", function (snapshot) {
+    //whenever win count changes the html gets updated
+    console.log(snapshot.val());
+    if(snapshot.val() === null){
+        return;
+    }
+
+    //update html
+     $("#gokuWinCount").text(snapshot.val().goku);
+     $("#ryuWinCount").text(snapshot.val().ryu);
+});
 
 //show fighting arena
 function revealFigthingArena() {
@@ -305,6 +442,7 @@ function keyPadInputs(snapshot) {
 }
 
 //reset function
+<<<<<<< HEAD
 function resetFightArena(message) {
   //reset characters values
   goku = null;
@@ -312,6 +450,55 @@ function resetFightArena(message) {
 
   //showcase victories and forfeits messages
   $("#displayMessage").text(message);
+=======
+function resetFightArena(message, winner, fullReset) {
+    //reset characters values
+    goku = null;
+    ryu = null;
+
+    //for testing
+    console.log("winner: " + winner);
+
+    //stop timer
+    countdown.stop();
+
+    //makes the current fighter still standing the winner
+    if (myFighter === winner && !fullReset) {
+        //read current value
+        database.ref("/wins/").once("value").then(function (snapshot) {
+            //holds current winner
+            let tempWinner = winner;
+
+            //for testing
+            console.log("winner: " + winner);
+
+            //holds current wins
+            let tempWins = snapshot.val();
+
+            //updates current wins for each player
+            if (tempWins === null) {
+                tempWins = {
+                    goku: 0,
+                    ryu: 0
+                };
+            }
+
+            //wins are increased
+            tempWins[winner] += 1;
+
+            //update database
+            database.ref("/wins/").update(tempWins);
+        });
+    }
+
+    //removes win count for players
+    if(fullReset){
+        database.ref("/wins/").remove();
+    }
+
+    //showcase victories and forfeits messages
+    $("#displayMessage").text(message);
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
   //unhide message area
   $("#displayMessage").removeClass("d-none");
@@ -328,10 +515,23 @@ function resetFightArena(message) {
   //remove instructions again
   $("#content").removeClass("d-none");
 
+<<<<<<< HEAD
   //clear choices
   setTimeout(function() {
     //remove keypad data
     database.ref("/keypad/").remove();
+=======
+    //clear choices
+    setTimeout(function () {
+        //cancels onDisconnect Handler
+        database.ref("/players/goku").onDisconnect().cancel();
+
+        //cancels onDisconnect Handler
+        database.ref("/players/ryu").onDisconnect().cancel();
+
+        //remove keypad data
+        database.ref("/keypad/").remove();
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 
     //remove players
     database.ref("/players/").remove();
@@ -360,6 +560,7 @@ function resetFightArena(message) {
 }
 // coundown object
 var countdown = {
+<<<<<<< HEAD
   //countdown time initialized
   time: 59,
 
@@ -417,6 +618,66 @@ var countdown = {
 
       //keep track of number of questions answered
       //countQuestion++;
+=======
+    //countdown time initialized
+    time: 59,
+
+    //resets countdown
+    reset: function () {
+        //resets countdown time
+        countdown.time = 59;
+
+        //change the html to read the current countdown time
+        $("#countDown").text("59");
+
+    },
+    //starts the countdown
+    start: function () {
+        // use setInterval to start the count here and set the clock to running.
+        if (!clockRunning) {
+            //start countdown
+            intervalId = setInterval(countdown.count, 1000);
+
+            //the countdown has started
+            clockRunning = true;
+        }
+    },
+    //stops countdown
+    stop: function () {
+        // use clearInterval to stop the count here and set the clock to not be running.
+        //reset interval
+        clearInterval(intervalId);
+
+        //stop the countdown
+        clockRunning = false;
+    },
+    //keep track of the countdown
+    count: function () {
+        // decrease time by 1
+        countdown.time--;
+
+        // update html with the current countdown
+        $("#countDown").text(countdown.time);
+
+        //if count <= 0 then the countdown has reached the end, declare a winner of the round and restart the counter
+        if (countdown.time <= 0) {
+            //stop countdown
+            countdown.stop();
+
+            //figure out who the winner is
+            let winner = "";
+
+            if (curHitPointsGoku > curHitPointsRyu) {
+                winner = "goku";
+            } else if (curHitPointsGoku === curHitPointsRyu) {
+                winner = null;
+            } else {
+                winner = "ryu";
+            }
+            //reset fight arena based on timer running out, declare a winner and don't reset arena
+            resetFightArena("Time Up!", winner, false);
+        }
+>>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
     }
   }
 };
