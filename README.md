@@ -22,13 +22,13 @@
   
  ## Part 1- Street-Fight Game as a glance:
 
+
  ### Highlights of our game features
  ![Authentication](images/login.png "Sign-in via Google Account")
 
  ![Live Chat](images/chat.png "Chat with your opponent")
-
-  
-  #### Instructions:
+ 
+#### Instructions:
   * Log in
   * Press keys to move characters according to our instructions per player
   * Hit opponents to lower their HP
@@ -36,7 +36,7 @@
   * Tap chatbox to start a conversation.
   
   
- ### Material and Tools
+### Material and Tools
   * Node.js
   * [Sound.js](https://www.createjs.com/soundjs)
   * [Material Design Lite](https://github.com/google/material-design-lite)
