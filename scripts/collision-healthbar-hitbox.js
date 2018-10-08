@@ -110,12 +110,7 @@ var collisionQuery = {
 //==================
 //    HEALTHBAR
 //==================
-<<<<<<< HEAD
-let maxHitPoints = 0,
-  curHitPoints = maxHitPoints;
-=======
 let maxHitPoints = 0, curHitPointsGoku = maxHitPoints, curHitPointsRyu = maxHitPoints;
->>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
 // let maxHitPoints = 0, curHitPoints = maxHitPoints;
 var healthbar = {
   generateHitPoints: function() {
@@ -196,25 +191,13 @@ var eventHandlers = {
     curHitPointsRyu = curHitPointsRyu - damage;
     healthbar.applyDamageRyu(curHitPointsRyu);
     //reset the fighting arena when ryu has been defeated
-<<<<<<< HEAD
-    if (curHitPoints <= 0) {
-      resetFightArena("Goku Wins!");
-    }
-=======
     if(curHitPointsRyu <= 0){resetFightArena("Goku Wins!", "goku", false);}
->>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
   },
   applyDamageGoku: function(damage) {
     curHitPointsGoku = curHitPointsGoku - damage;
     healthbar.applyDamageGoku(curHitPointsGoku);
     //reset the fighting arena when goku has been defeated
-<<<<<<< HEAD
-    if (curHitPoints <= 0) {
-      resetFightArena("Ryu Wins!");
-    }
-=======
     if(curHitPointsGoku <= 0){resetFightArena("Ryu Wins!", "ryu", false);}
->>>>>>> 7e4da53d1c168477fb86a0acb32f10069ef93c5e
   },
   intializeGameClick: $(".newGame").click(function() {
     this.intializeGame();

@@ -248,7 +248,7 @@ function checkSignedInWithMessage() {
     return true;
   }
 
-  Display a message to the user using a Toast.
+  //Display a message to the user using a Toast.
   var data = {
     message: "You must sign-in first",
     timeout: 2000
