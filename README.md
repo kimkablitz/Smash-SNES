@@ -24,7 +24,7 @@
 
 
  ### Highlights of our game features
- ![Authentication](images/login.png "Sign-in via Google Account")
+ ![Authentication](images/game.png "Sign-in via Google Account")
 
  ![Live Chat](images/chat.png "Chat with your opponent")
  
