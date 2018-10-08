@@ -418,14 +418,18 @@ var countdown = {
             //stop countdown
             countdown.stop();
 
-            //figure out who the winner is
+            //intialize the winner
             let winner = "";
 
+            //figure out who the winner is
             if (curHitPointsGoku > curHitPointsRyu) {
+                //goku is the winner
                 winner = "goku";
             } else if (curHitPointsGoku === curHitPointsRyu) {
+                //tie case
                 winner = null;
             } else {
+                //ryu is the winner
                 winner = "ryu";
             }
             //reset fight arena based on timer running out, declare a winner and don't reset arena
