@@ -63,15 +63,15 @@ html {
 /* sprites become black and white on the instructions area */
 #gokuImg,
 #ryuImg {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 /* sprites regaining color while hovering on the instructions area */
 #gokuImg.should-hover:hover,
 #ryuImg.should-hover:hover {
-    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(0%);
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
 }
 
 /* sprite positioning */
@@ -123,5 +123,3 @@ li {
     height: 41px !important;
   }
 }
-
-
