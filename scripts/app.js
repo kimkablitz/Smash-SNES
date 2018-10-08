@@ -416,21 +416,21 @@ var countdown = {
 
         //if count <= 0 then the countdown has reached the end, declare a winner of the round and restart the counter
         if (countdown.time <= 0) {
-          //stop countdown
-          countdown.stop();
+            //stop countdown
+            countdown.stop();
 
-          //initialize the winner
-          let winner = "";
-          
-          //figure out who the winner is
-          if (curHitPointsGoku > curHitPointsRyu) {
-            //goku is the winner
+            //intialize the winner
+            let winner = "";
+
+            //figure out who the winner is
+            if (curHitPointsGoku > curHitPointsRyu) {
+                //goku is the winner
                 winner = "goku";
-          } else if (curHitPointsGoku === curHitPointsRyu) {
-            //tie
+            } else if (curHitPointsGoku === curHitPointsRyu) {
+                //tie case
                 winner = null;
-          } else {
-            //ryu is the winner
+            } else {
+                //ryu is the winner
                 winner = "ryu";
           }
           //reset fight arena based on timer running out, declare a winner and don't reset arena
